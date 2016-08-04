@@ -1,5 +1,6 @@
 package com.escola;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 
@@ -12,13 +13,14 @@ public final class Aluno {
 
 	private Date dataNascimento;
 	
-	private Matricula[] ListaMatriculas;
+	//private ArrayList<Matricula> listaMatriculas;
 	
 	//Construtor----------------------------------------------------------------------
 	public Aluno(int matricula, String nome, Date dataNascimento){
 		this.matricula = matricula;
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
+		//this.listaMatriculas = new ArrayList<Matricula>();
 	}
 	
 	//Metodos acessores----------------------------------------------------------------
@@ -45,8 +47,8 @@ public final class Aluno {
 	//Metodos Sobrescritos----------------------------------------------------------------
 	@Override
 	public String toString(){
-		return "Matricula: " + this.matricula + " Nome: " + this.nome + 
-				" Nascimento: " + this.getDataNascimento();
+		SimpleDateFormat sdt = new SimpleDateFormat("MM/dd/yy");
+		return this.matricula+ ";" + this.nome + ";" + sdt.format(this.dataNascimento);
 	}
 	
 	@Override
@@ -58,4 +60,12 @@ public final class Aluno {
 		}
 		return false;
 	}
+	
+	/*Metodos sobre ArrayList Matriculas-------------------------------------------------
+	
+	public void addDisciplina(Disciplina disciplina){
+		Matricula novaMatricula = new Matricula(disciplina, this, null);
+		this.listaMatriculas.add(novaMatricula);					//add nova matricula a lista do aluno
+		disciplina
+	} */
 }

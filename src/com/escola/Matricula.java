@@ -3,23 +3,25 @@ package com.escola;
 public final class Matricula {
 	
 	//atributos-----------------------------------------------------------------------
-	private int pontuacao;
+	private Integer pontuacao;
 	
 	private Disciplina disciplina;
 
 	private Aluno aluno;
 	
 	//Construtor----------------------------------------------------------------------
-	public Matricula(int pontuacao){
+	public Matricula(Disciplina disciplina, Aluno aluno, Integer pontuacao){
+		this.disciplina = disciplina;
+		this.aluno = aluno;
 		this.pontuacao = pontuacao;
 	}
 	
 	//Metodos acessores----------------------------------------------------------------
-	public int getPontuacao() {
+	public Integer getPontuacao() {
 		return this.pontuacao;
 	}
 
-	public void setPontuacao(int pontuacao) {
+	public void setPontuacao(Integer pontuacao) {
 		this.pontuacao = pontuacao;
 	}
 	

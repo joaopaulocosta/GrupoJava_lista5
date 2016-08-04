@@ -1,4 +1,5 @@
 package com.escola;
+import java.util.ArrayList;
 
 public final class Disciplina {
 	
@@ -9,7 +10,7 @@ public final class Disciplina {
 
 	private int cargaHoraria;
 	
-	private Matricula[] matricula;
+	//private ArrayList<Matricula> listaMatriculas;
 
 	private Professor professor;
 	
@@ -18,6 +19,7 @@ public final class Disciplina {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.cargaHoraria = cargaHoraria;
+		//this.listaMatriculas = new ArrayList<Matricula>();
 	}
 	
 	//Metodos acessores----------------------------------------------------------------
@@ -57,4 +59,12 @@ public final class Disciplina {
 			}
 			return false;
 		}
+		
+	/*Metodos sobre ArrayList Matriculas-------------------------------------------------
+		
+		public void addAluno(Disciplina disciplina){
+			Matricula novaMatricula = new Matricula(disciplina, this, null);
+			this.listaMatriculas.add(novaMatricula);					//add nova matricula a lista do aluno
+			disciplina
+		} */
 }

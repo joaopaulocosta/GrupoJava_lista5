@@ -6,8 +6,8 @@ public final class Mestre extends Professor {
 	private String tituloDissertacao;
 	
 	//Construtor----------------------------------------------------------------------
-	public Mestre(Long cpf, String nome, double salario, String titulo, Disciplina disc){
-		super(cpf, nome, salario, disc);
+	public Mestre(Long cpf, String nome, double salario, String titulo){
+		super(cpf, nome, salario);
 		this.tituloDissertacao = titulo;
 	}
 	

@@ -13,15 +13,14 @@ public abstract class Professor {
 
 	private double salario;
 	
-	private List<Disciplina> disciplina;
+	//private List<Disciplina> disciplina;
 	
 	//Construtor----------------------------------------------------------------------
-	public Professor(Long cpf, String nome, Double salario, Disciplina disc){
+	public Professor(Long cpf, String nome, Double salario){
 		this.cpf = cpf;
 		this.nome = nome;
 		this.salario = salario;
-		this.disciplina = new ArrayList<Disciplina>();
-		disciplina.add(disc);
+
 	}
 	
 	//Metodos acessores----------------------------------------------------------------
@@ -45,9 +44,6 @@ public abstract class Professor {
 		this.salario = salario;
 	}
 	
-	public void addDisciplina(Disciplina disc){
-		disciplina.add(disc);
-	}
 	
 	//Metodos Sobrescritos----------------------------------------------------------------
 			@Override

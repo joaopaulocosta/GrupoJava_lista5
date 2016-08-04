@@ -7,8 +7,8 @@ public final class Doutor extends Professor {
 	private String tituloTese;
 	
 	//Construtor----------------------------------------------------------------------
-	public Doutor(Long cpf, String nome, double salario, String tituloTese, Disciplina disc){
-		super(cpf, nome, salario, disc);
+	public Doutor(Long cpf, String nome, double salario, String tituloTese){
+		super(cpf, nome, salario);
 		this.tituloTese = tituloTese;
 	}
 	
