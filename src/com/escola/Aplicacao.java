@@ -20,9 +20,10 @@ public class Aplicacao {
 		nome = new String(ler.nextLine());
 		System.out.println("Data de nascimento: ");
 		
-		data = new Date(ler.nextLine());
-		SimpleDateFormat sdt = new SimpleDateFormat("MM/dd/yy");
+		String[] dataS = ler.nextLine().split("/");
 		
+		data = new Date( dataS[1] + "/" + dataS[0] + "/" + dataS[2]);	//gambiarra para adaptar a entrada ao nosso formato
+		System.out.println(data.toString());
 		Aluno novoAluno = new Aluno(matricula,nome,data);
 
 		return novoAluno;
@@ -36,7 +37,8 @@ public class Aplicacao {
 		while(menu != 0){
 			System.out.println("Menu");
 			System.out.println("1 - Incluir aluno");
-			System.out.println("2 - Gerar Backup");
+			System.out.println("2 - Excluir aluno");
+			System.out.println("3 - Gerar Backup");
 			System.out.println("0 - Sair");
 			
 			menu = Integer.parseInt(ler.nextLine());
@@ -45,7 +47,10 @@ public class Aplicacao {
 				case 1 : 
 					bd.addAluno(incluirAluno());
 					break;
-				case 2 :
+				case 2 : 
+					
+					break;
+				case 3 :
 					System.out.println(bd.gerarBackup());
 					break;
 			}

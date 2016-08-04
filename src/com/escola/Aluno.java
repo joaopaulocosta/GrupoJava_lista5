@@ -47,8 +47,9 @@ public final class Aluno {
 	//Metodos Sobrescritos----------------------------------------------------------------
 	@Override
 	public String toString(){
-		SimpleDateFormat sdt = new SimpleDateFormat("MM/dd/yy");
+		SimpleDateFormat sdt = new SimpleDateFormat("dd/MM/yy");
 		return this.matricula+ ";" + this.nome + ";" + sdt.format(this.dataNascimento);
+		//padrao de string pedido no enunciado
 	}
 	
 	@Override
