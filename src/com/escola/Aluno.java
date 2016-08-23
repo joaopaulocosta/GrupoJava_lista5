@@ -62,11 +62,5 @@ public final class Aluno {
 		return false;
 	}
 	
-/*Metodos sobre ArrayList Matriculas-----------------------------------------------------------------------------------
-	
-	public void addDisciplina(Disciplina disciplina){
-		Matricula novaMatricula = new Matricula(disciplina, this, null);
-		this.listaMatriculas.add(novaMatricula);					//add nova matricula a lista do aluno
-		disciplina
-	} */
+
 }

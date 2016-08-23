@@ -70,34 +70,28 @@ public class BD {
 
 //Metodos de listagem---------------------------------------------------------------------------------------------------	
 
-	//metodo que lista aluno a partir do numero de sua matricula
-	public void listarAluno(int matricula){
+	//metodo que lista alunos
+	public void listarAluno(){
 		for(Aluno aluno : this.listaAlunos){
-			if(aluno.getMatricula() == matricula){
-				System.out.println(aluno.toString());
-				return;
-			}
+			System.out.println(aluno.toString());
 		}
+		System.out.println("\n");
 	}
 	
-	//metodo que lista professor a partir do numero de cpf
-	public void listarProfessor(long cpf){
+	//metodo que lista professores
+	public void listarProfessor(){
 		for(Professor professor : this.listaProfessores){
-			if(professor.getCpf() == cpf){
-				System.out.println(professor.toString());
-				return;
-			}
+			System.out.println(professor.toString());
 		}
+		System.out.println("\n");
 	}
 	
-	//metodo que lista disciplina a partir do seu codigo
-	public void listarDisciplina(int codigo){
+	//metodo que lista disciplinas
+	public void listarDisciplina(){
 		for(Disciplina disciplina : this.listaDisciplinas){
-			if(disciplina.getCodigo() == codigo){
-				System.out.println(disciplina.toString());
-				return;
-			}
+			System.out.println(disciplina.toString());
 		}
+		System.out.println("\n");
 	}
 	
 //----------------------------------------------------------------------------------------------------------------------
@@ -111,8 +105,37 @@ public class BD {
 		}
 		return null;
 	}
-		
 	
+	//metodo que retorna um aluno a partir de seu numero de matricula
+	public Aluno getAluno(int matricula){
+		for(Aluno aluno : this.listaAlunos){
+			if(aluno.getMatricula() == matricula){
+				return aluno;
+			}
+		}
+		return null;
+	}
+	
+	//metodo que retorna uma disciplina a partir de seu codigo
+	public Disciplina getDisciplina(int codigo){
+		for(Disciplina disciplina : this.listaDisciplinas){
+			if(disciplina.getCodigo() == codigo){
+				return disciplina;
+			}
+		}
+		return null;
+	}
+		
+	//metodo que retorna uma matricula a partir do codigo da disciplina e codigo do aluno
+		public Matricula getMatricula(int codAluno, int codDisciplina){
+			for(Matricula matricula : this.listaMatriculas){
+				if(matricula.getAluno().getMatricula() == codAluno &&
+						matricula.getDisciplina().getCodigo() == codDisciplina){
+					return matricula;
+				}
+			}
+			return null;
+		}
 
 	
 	//metodo para retornar o mes em português
@@ -161,14 +184,19 @@ public class BD {
 		return res;
 	}
 	
+	//função que retorna um StringBuilder de acordo com o padrão exigido
 	public StringBuilder gerarBackup(){
 		
 		//iniciando StringBuilder
 		StringBuilder strBuffer = new StringBuilder("------------------------------------------------------------\n");	
 		strBuffer.append("Backup realizado em ");
-		Date data = new Date();			
-		strBuffer.append(data.getDay() + " de " + this.mes(data.getMonth()) + " de " +  (1900 + data.getYear()));
-		strBuffer.append(" às " + data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds() + "\n\n");
+		Date data = new Date();	
+		
+		strBuffer.append( (data.getDay()+21) + " de " + this.mes(data.getMonth() + 1) + " de " +  
+		(1900 + data.getYear()));
+		
+		strBuffer.append(" às " + data.getHours() + ":" + data.getMinutes() + ":" +
+		data.getSeconds() + "\n\n");
 		
 		strBuffer.append("Alunos\n");
 		
@@ -190,6 +218,14 @@ public class BD {
 		
 		for(Disciplina disciplina: this.listaDisciplinas){
 			strBuffer.append(disciplina.toString() + "\n");
+		}
+		
+		strBuffer.append("\n");
+		
+		strBuffer.append("Matriculas\n");
+		
+		for(Matricula matricula: this.listaMatriculas){
+			strBuffer.append(matricula.toString() + "\n");
 		}
 		
 		strBuffer.append("------------------------------------------------------------\n");

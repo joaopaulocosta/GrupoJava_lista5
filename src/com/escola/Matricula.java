@@ -20,6 +20,14 @@ public final class Matricula {
 	public Integer getPontuacao() {
 		return this.pontuacao;
 	}
+	
+	public Aluno getAluno(){
+		return this.aluno;
+	}
+	
+	public Disciplina getDisciplina(){
+		return this.disciplina;
+	}
 
 	public void setPontuacao(Integer pontuacao) {
 		this.pontuacao = pontuacao;
@@ -28,8 +36,8 @@ public final class Matricula {
 	//Metodos Sobrescritos----------------------------------------------------------------
 	@Override
 	public String toString(){
-		return "Pontuacao: " + this.pontuacao + " Disciplinha: " + this.disciplina.getNome() + " Aluno: " 
-				+ this.aluno.getNome();
+		return  this.disciplina.getCodigo() + ";" + this.aluno.getMatricula() + ";" 
+				+ this.getPontuacao();
 	}
 	
 	@Override

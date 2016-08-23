@@ -13,8 +13,6 @@ public abstract class Professor {
 
 	private double salario;
 	
-	//private List<Disciplina> disciplina;
-	
 	//Construtor----------------------------------------------------------------------
 	public Professor(Long cpf, String nome, Double salario){
 		this.cpf = cpf;
