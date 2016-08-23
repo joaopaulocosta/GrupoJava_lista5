@@ -6,23 +6,21 @@ import java.text.SimpleDateFormat;
 
 public class BD {
 	private ArrayList<Aluno> listaAlunos;
-	private ArrayList<Disciplina> listaDisciplina;
+	private ArrayList<Disciplina> listaDisciplinas;
 	private ArrayList<Professor> listaProfessores;
 	private ArrayList<Matricula> listaMatriculas;
 	
 	public BD(){
 		listaAlunos = new ArrayList<Aluno>();
-		listaDisciplina = new ArrayList<Disciplina>();
+		listaDisciplinas = new ArrayList<Disciplina>();
 		listaProfessores = new ArrayList<Professor>();
 		listaMatriculas = new ArrayList<Matricula>();
 	}
-	
-	public void addAluno(Aluno novoAluno){
-		this.listaAlunos.add(novoAluno);
-	}
+
+//Metodos de inclusao---------------------------------------------------------------------------------------------------
 	
 	public void addDisciplina(Disciplina novaDisciplina){
-		this.listaDisciplina.add(novaDisciplina);
+		this.listaDisciplinas.add(novaDisciplina);
 	}
 	
 	public void addProfessor(Professor novoProfessor){
@@ -32,6 +30,90 @@ public class BD {
 	public void addMatricula(Matricula novaMatricula){
 		this.listaMatriculas.add(novaMatricula);
 	}
+	
+	public void addAluno(Aluno novoAluno){
+		this.listaAlunos.add(novoAluno);
+	}
+	
+
+//Metodos de exclusao---------------------------------------------------------------------------------------------------
+	
+	//metodo que ira excluir um aluno a partir do numero de sua matricula
+	public void excluirAluno(int matricula){
+		for(Aluno aluno : listaAlunos){
+			if(aluno.getMatricula() == matricula){
+				listaAlunos.remove(aluno);
+				return;
+			}
+		}
+	}
+	
+	//metodo que ira excluir um professor a partir do numero de cpf
+	public void excluirProfessor(long cpf){
+		for(Professor professor : this.listaProfessores){
+			if(professor.getCpf() == cpf){
+				listaProfessores.remove(professor);
+				return;
+			}
+		}
+	}
+	
+	//metodo que ira excluir uma disciplina a partir de seu codigo
+	public void excluirDisciplina(int codigo){
+		for(Disciplina disciplina : this.listaDisciplinas){
+			if(disciplina.getCodigo() == codigo){
+				listaDisciplinas.remove(disciplina);
+				return;
+			}
+		}
+	}
+
+//Metodos de listagem---------------------------------------------------------------------------------------------------	
+
+	//metodo que lista aluno a partir do numero de sua matricula
+	public void listarAluno(int matricula){
+		for(Aluno aluno : this.listaAlunos){
+			if(aluno.getMatricula() == matricula){
+				System.out.println(aluno.toString());
+				return;
+			}
+		}
+	}
+	
+	//metodo que lista professor a partir do numero de cpf
+	public void listarProfessor(long cpf){
+		for(Professor professor : this.listaProfessores){
+			if(professor.getCpf() == cpf){
+				System.out.println(professor.toString());
+				return;
+			}
+		}
+	}
+	
+	//metodo que lista disciplina a partir do seu codigo
+	public void listarDisciplina(int codigo){
+		for(Disciplina disciplina : this.listaDisciplinas){
+			if(disciplina.getCodigo() == codigo){
+				System.out.println(disciplina.toString());
+				return;
+			}
+		}
+	}
+	
+//----------------------------------------------------------------------------------------------------------------------
+
+	//metodo que retorna um professor a partir do numero de cpf
+	public Professor getProfessor(long cpf){
+		for(Professor professor : this.listaProfessores){
+			if(professor.getCpf() == cpf){
+				return professor;
+			}
+		}
+		return null;
+	}
+		
+	
+
 	
 	//metodo para retornar o mes em português
 	private  String mes(int mes){
@@ -90,8 +172,24 @@ public class BD {
 		
 		strBuffer.append("Alunos\n");
 		
-		for(Aluno aluno: listaAlunos){
+		for(Aluno aluno: this.listaAlunos){
 			strBuffer.append(aluno.toString() + "\n");
+		}
+		
+		strBuffer.append("\n");
+		
+		strBuffer.append("Professores\n");
+		
+		for(Professor professor: this.listaProfessores){
+			strBuffer.append(professor.toString() + "\n");
+		}
+		
+		strBuffer.append("\n");
+		
+		strBuffer.append("Disciplinas\n");
+		
+		for(Disciplina disciplina: this.listaDisciplinas){
+			strBuffer.append(disciplina.toString() + "\n");
 		}
 		
 		strBuffer.append("------------------------------------------------------------\n");

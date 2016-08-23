@@ -48,7 +48,7 @@ public abstract class Professor {
 	//Metodos Sobrescritos----------------------------------------------------------------
 			@Override
 			public String toString(){
-				return this.cpf + ";" + this.nome + ";" + this.getSalario() + ";" + this.getClass();
+				return this.cpf + ";" + this.nome + ";" + this.getSalario() + ";";
 				//padrao de string pedido no enunciado
 			}
 			

@@ -23,7 +23,7 @@ public final class Mestre extends Professor {
 	//Metodos Sobrescritos----------------------------------------------------------------
 	@Override
 	public String toString(){
-		return super.toString() +" Titulo de Dissertacao: " + this.tituloDissertacao;
+		return super.toString() +";Mestre";
 	}
 	
 	@Override

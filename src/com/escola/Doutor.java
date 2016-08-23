@@ -34,7 +34,11 @@ public final class Doutor extends Professor {
 	//Metodos Sobrescritos----------------------------------------------------------------
 	@Override
 	public String toString(){
-		return super.toString() +" Titulo de Tese: " + this.tituloTese;
+		if(this.bonusSalarial >= 1)
+			return super.getCpf() + ";" + super.getNome() + ";" + super.getSalario() * this.bonusSalarial + ";Doutor";
+		else
+			return super.getCpf() + ";" + super.getNome() + ";" + super.getSalario() + ";Doutor";
+		//padrao de string pedido no enunciado
 	}
 	
 	@Override

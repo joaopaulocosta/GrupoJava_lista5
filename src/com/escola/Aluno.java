@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 
 public final class Aluno {
 	
-	//atributos-----------------------------------------------------------------------
+//atributos--------------------------------------------------------------------------------------------------------------
 	private final int matricula;
 
 	private String nome;
@@ -15,7 +15,7 @@ public final class Aluno {
 	
 	//private ArrayList<Matricula> listaMatriculas;
 	
-	//Construtor----------------------------------------------------------------------
+//Construtor------------------------------------------------------------------------------------------------------------
 	public Aluno(int matricula, String nome, Date dataNascimento){
 		this.matricula = matricula;
 		this.nome = nome;
@@ -23,7 +23,7 @@ public final class Aluno {
 		//this.listaMatriculas = new ArrayList<Matricula>();
 	}
 	
-	//Metodos acessores----------------------------------------------------------------
+//Metodos acessores----------------------------------------------------------------------------------------------------
 	public int getMatricula() {
 		return this.matricula;
 	}
@@ -44,7 +44,7 @@ public final class Aluno {
 		this.dataNascimento = data;
 	}
 	
-	//Metodos Sobrescritos----------------------------------------------------------------
+//Metodos Sobrescritos-------------------------------------------------------------------------------------------------
 	@Override
 	public String toString(){
 		SimpleDateFormat sdt = new SimpleDateFormat("dd/MM/yy");
@@ -62,7 +62,7 @@ public final class Aluno {
 		return false;
 	}
 	
-	/*Metodos sobre ArrayList Matriculas-------------------------------------------------
+/*Metodos sobre ArrayList Matriculas-----------------------------------------------------------------------------------
 	
 	public void addDisciplina(Disciplina disciplina){
 		Matricula novaMatricula = new Matricula(disciplina, this, null);

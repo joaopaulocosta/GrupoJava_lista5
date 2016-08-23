@@ -10,15 +10,16 @@ public final class Disciplina {
 
 	private int cargaHoraria;
 	
-	//private ArrayList<Matricula> listaMatriculas;
+	private ArrayList<Matricula> listaMatriculas;
 
 	private Professor professor;
 	
 	//Construtor----------------------------------------------------------------------
-	public Disciplina(int codigo, String nome, int cargaHoraria){
+	public Disciplina(int codigo, String nome, int cargaHoraria, Professor professor){
 		this.codigo = codigo;
 		this.nome = nome;
 		this.cargaHoraria = cargaHoraria;
+		this.professor = professor;
 		//this.listaMatriculas = new ArrayList<Matricula>();
 	}
 	
@@ -46,8 +47,8 @@ public final class Disciplina {
 	//Metodos Sobrescritos----------------------------------------------------------------
 		@Override
 		public String toString(){
-			return "Codigo: " + this.codigo + " Nome: " + this.nome + 
-					" Carga Horaria: " + this.getCargaHoraria();
+			return this.codigo + ";" + this.nome + 
+					";" + this.getCargaHoraria() + ";" + this.professor.getCpf();
 		}
 		
 		@Override
